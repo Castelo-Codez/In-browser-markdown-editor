@@ -1,11 +1,10 @@
 <script setup>
 import {computed, onMounted, ref} from "vue";
 import {marked} from "marked";
+import {$input} from "@/store/store";
 import Header from "./Header.vue";
 import interact from "interactjs";
 const $sec = ref();
-const $dra = ref();
-const $input = ref("");
 const $fullpreview = ref(false);
 
 const $output = computed(() => {
@@ -45,7 +44,7 @@ onMounted(() => {
                 v-show="!$fullpreview"
                 aria-label="markdown input"
                 ref="$sec"
-                class="pt-14 pl-7 pr-7 pb-3 basis-2/4 md:basis-auto md:w-2/4  bg-vt-dark relative before:content-['markdown'] before:absolute before:flex before:items-center before:text-[1.1rem] before:capitalize before:w-full before:h-8 before:bg-vt-c-divider-light-2 before:p-6 text-vt-c-white-mute before:z-30 before:top-0 before:left-0"
+                class="pt-14 pl-7 pr-7 pb-3 basis-2/4 md:basis-auto md:w-2/4 bg-vt-dark relative before:content-['markdown'] before:absolute before:flex before:items-center before:text-[1.1rem] before:capitalize before:w-full before:h-8 before:bg-vt-c-divider-light-2 before:p-6 text-vt-c-white-mute before:z-30 before:top-0 before:left-0"
             >
                 <div
                     aria-label="dragger"
@@ -54,6 +53,7 @@ onMounted(() => {
 
                 <textarea
                     v-model="$input"
+                    aria-label="markdown input"
                     name="markdown-input"
                     id="input"
                     class="resize-none p-3 w-full h-full bg-inherit focus-within:outline-none"
@@ -63,7 +63,7 @@ onMounted(() => {
             <section
                 aria-label="markdown preview"
                 id="preview-wrapper"
-                class="pt-14 pl-7 pr-7 overflow-hidden pb-3 flex-1  bg-vt-dark relative before:content-['preview'] before:absolute before:flex before:items-center before:text-[1.1rem] before:capitalize before:w-full before:h-8 before:bg-vt-c-divider-light-2 before:p-6 text-vt-c-white-mute before:z-[900] before:top-0 before:left-0"
+                class="pt-14 pl-7 pr-7 overflow-hidden pb-3 flex-1 bg-vt-dark relative before:content-['preview'] before:absolute before:flex before:items-center before:text-[1.1rem] before:capitalize before:w-full before:h-8 before:bg-vt-c-divider-light-2 before:p-6 text-vt-c-white-mute before:z-[900] before:top-0 before:left-0"
             >
                 <button
                     class="absolute top-0 bg-none border-none pt-[0.99rem] right-6 cursor-pointer z-[1000] hidden md:block"

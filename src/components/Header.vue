@@ -1,5 +1,20 @@
 <script setup>
-import {$AsideStatus, $currentSheet} from "../store/store";
+import {$AsideStatus, $currentSheet, $input, $listOfDocs} from "../store/store";
+
+function $saveChanges() {
+    $currentSheet.value.content = $input.value;
+}
+function $delDoc() {
+    if ($currentSheet.value.title === "unremoval document") {
+        return;
+    } else {
+        $listOfDocs.value.splice(
+            $listOfDocs.value.indexOf($currentSheet.value),
+            1
+        );
+        $currentSheet.value = $listOfDocs.value[$listOfDocs.value.length - 1];
+    }
+}
 </script>
 <template>
     <header
@@ -36,18 +51,18 @@ import {$AsideStatus, $currentSheet} from "../store/store";
                     <span
                         aria-hidden="true"
                         class="capitalize text-gray-400 hidden sm:block"
-                        >document name</span
+                        >{{ $currentSheet.Date }}</span
                     >
                     <input
                         aria-label="document name"
-                        class="block bg-vt-c-black-soft border-none w-[110px] focus:outline-none cursor-pointer border-b border-b-vt-c-white-mute"
-                        value="welcome.md"
+                        class="block bg-vt-c-black-mute border-none w-[80px] md:w-[300px] focus:outline-none cursor-pointer border-b border-b-vt-c-white-mute"
+                        v-model="$currentSheet.title"
                     />
                 </div>
             </div>
         </section>
         <section class="right pr-4 flex items-center gap-x-4">
-            <button aria-label="delete document">
+            <button aria-label="delete document" @click="$delDoc">
                 <svg width="18" height="20" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M7 16a1 1 0 0 0 1-1V9a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1ZM17 4h-4V3a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v1H1a1 1 0 1 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V6h1a1 1 0 0 0 0-2ZM7 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1H7V3Zm7 14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6h10v11Zm-3-1a1 1 0 0 0 1-1V9a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z"
@@ -56,6 +71,7 @@ import {$AsideStatus, $currentSheet} from "../store/store";
                 </svg>
             </button>
             <button
+                @click="$saveChanges"
                 aria-label="save changes"
                 class="bg-orange-500 px-4 py-2 text-vt-c-white-mute flex items-center gap-x-3 rounded-lg"
             >
