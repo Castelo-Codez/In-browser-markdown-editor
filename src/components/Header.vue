@@ -5,7 +5,7 @@ import {$AsideStatus, $currentSheet} from "../store/store";
     <header
         role="banner"
         aria-label=" header section"
-        class="bg-vt-c-black-soft gap-4 flex justify-between items-center flex-wrap"
+        class="bg-vt-c-black-mute gap-4 flex justify-between items-center flex-wrap"
     >
         <section class="left flex items-center gap-x-5 text-vt-c-white-mute">
             <button

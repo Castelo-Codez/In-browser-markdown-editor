@@ -15,4 +15,35 @@
     #app.aside-active {
         transform: translateX(250px);
     }
+    #preview {
+        --rounded: 20px;
+        --clr-or: #f97316;
+        --clr-da: #0c0a09;
+        * {
+            all: revert;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        ul {
+            li::marker {
+                color: var(--clr-or);
+            }
+        }
+        a {
+            color: var(--clr-or);
+        }
+        pre {
+            display: block;
+            background-color: var(--clr-da);
+            color: #e4e4e7;
+            padding: 20px;
+            border-radius: var(--rounded);
+        }
+        blockquote {
+            background-color: var(--clr-da);
+            padding: 20px;
+            border-left: 3px solid var(--clr-or);
+        }
+    }
 }

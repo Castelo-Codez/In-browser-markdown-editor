@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
-    darkMode: ["class"],
+
     theme: {
         extend: {
             colors: {
                 "vt-c-white": "#ffffff",
                 "vt-c-white-soft": "#f8f8f8",
                 "vt-c-white-mute": "#f2f2f2",
-                " --vt-c-black": " #181818",
+                "vt-c-black": " #181818",
                 "vt-c-black-soft": "#222222",
                 "vt-c-black-mute": "#282828",
                 "vt-c-indigo": "#2c3e50",
@@ -20,6 +20,7 @@ export default {
                 "vt-c-text-light-2": "rgba(60, 60, 60, 0.66)",
                 "vt-c-text-dark-1": "var(--vt-c-white)",
                 "vt-c-text-dark-2": "rgba(235, 235, 235, 0.64)",
+                "vt-dark": "#15161a",
             },
             screens: {
                 sm: "576px",
