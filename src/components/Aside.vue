@@ -8,6 +8,7 @@ function $addNewDoc() {
         id: Date.now(),
     };
     $listOfDocs.value.push($doc);
+    $currentSheet.value = $listOfDocs.value[$listOfDocs.value.length - 1];
 }
 </script>
 <template>

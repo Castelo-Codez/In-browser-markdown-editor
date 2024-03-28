@@ -17,8 +17,7 @@ if (window.localStorage.getItem("documents")) {
     ]);
 }
 
-$currentSheet.value = $listOfDocs.value[ $listOfDocs.value.length - 1 ];
-
+$currentSheet.value = $listOfDocs.value[$listOfDocs.value.length - 1];
 
 watch(
     $AsideStatus,
